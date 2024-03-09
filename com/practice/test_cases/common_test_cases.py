@@ -7,7 +7,7 @@ Dxg test cases
 from seleniumbase import BaseCase
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage
+from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, SignupPage
 import pyperclip
 import platform
 import logging
@@ -40,4 +40,11 @@ class CommonTestCases(BaseCase):
                 self.type(PopupTestPage.text_input, 'Nội dung cho popup ' + popup_id)
                 #self.driver.close()
         self.wait(10)
+        pass
+    
+    def SignupTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(SignupPage.signup_btn)
+        self.wait(5)
         pass

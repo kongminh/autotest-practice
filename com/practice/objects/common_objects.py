@@ -10,12 +10,12 @@ class Common(object):
     login_url = base_url + 'login'
 
 class LoginPage(object):
-    username_box = '.login-page__username input'
-    password_box = '.login-page__password input'
+    username_input = '.login-page__username input'
+    password_input = '.login-page__password input'
     login_btn = '.login-page__button-wrapper .btn--primary'
 
-    username_input = ''
-    password_input = ''
+    username_value = ''
+    password_value = ''
 
 class PopupTestPage(object):
     dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -28,3 +28,6 @@ class PopupTestPage(object):
 
     popup_title = '//h1[contains(text(), "Đây là cửa sổ popup")]'
     text_input = '#fname'
+
+class SignupPage(object):
+    signup_btn = '//a[contains(@href, "/login")]'
