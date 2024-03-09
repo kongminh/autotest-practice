@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "CargoLink-Test"
+version = "0.1.0"
+description = ""
+authors = ["CargoLink-Tester-Team"]
+
+[tool.poetry.dependencies]
+python = "^3.9.0"
+selenium = "^3.141.0"
+seleniumbase = "^1.50.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.1.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

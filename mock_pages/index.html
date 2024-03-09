@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Window Object</h1>
+<h2>The open() Method</h2>
+
+<p>Click the button to open a new browser window.</p>
+
+<button onclick="popup(1)">Popup 1</button>
+<button onclick="popup(2)">Popup 2</button>
+<button onclick="popup(3)">Popup 3</button>
+
+<script>
+function popup(pageIndex) {
+  window.open("./popup" + pageIndex + ".html", '_blank', 'top=100, left=' + pageIndex*150 + ', width=500, height=400');
+}
+</script>
+
+</body>
+</html>
