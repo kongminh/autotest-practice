@@ -24,6 +24,6 @@ class CommonTests(CommonTestCases):
     #     self.PopupTest()
 
     @pytest.mark.run(order=100)
-    def test_case03(self):
+    def test_case01(self):
         logging.info('test_case01 started')
         self.SignupTest()
