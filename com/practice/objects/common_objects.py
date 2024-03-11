@@ -37,7 +37,7 @@ class RegisterTestPage(object):
     email_input = '//input[contains(@name, "email") and contains(@data-qa, "signup-email")]'
     submit_btn = '//*[@id="form"]/div/div/div[3]/div/form/button'
     name_value = 'channg8788'
-    email_value = 'Mm333@yobmail.com'
+    email_value = 'Mm3878933@yopmail.com'
 
 class EnterAccountInforPage(object):
     mrs_radio = '//*[@id="id_gender2"]' 

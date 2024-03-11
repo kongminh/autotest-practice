@@ -50,12 +50,11 @@ class CommonTestCases(BaseCase):
         self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
         self.click(RegisterTestPage.submit_btn)
 
-        
-        self.open(Common.signup_url)
+
         self.click(EnterAccountInforPage.mrs_radio)
         self.type(EnterAccountInforPage.password_input, EnterAccountInforPage.password_value)
         self.click(EnterAccountInforPage.day_select, EnterAccountInforPage.day_value)
-        self.click(EnterAccountInforPage.month_select, EnterAccountInforPage.month_value_value)
+        self.click(EnterAccountInforPage.month_select, EnterAccountInforPage.month_value)
         self.click(EnterAccountInforPage.year_select, EnterAccountInforPage.year_value)
         self.click(EnterAccountInforPage.signup_checkbox)
         self.click(EnterAccountInforPage.receive_checkbox)
