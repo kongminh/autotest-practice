@@ -9,6 +9,7 @@ class Common(object):
     base_url = 'https://automationexercise.com/'
     login_url = base_url + 'login'
     signup_url = base_url + 'signup'
+  
 
 
 class LoginPage(object):
@@ -37,7 +38,7 @@ class RegisterTestPage(object):
     email_input = '//input[contains(@name, "email") and contains(@data-qa, "signup-email")]'
     submit_btn = '//*[@id="form"]/div/div/div[3]/div/form/button'
     name_value = 'channg8788'
-    email_value = 'Mm3878933@yopmail.com'
+    email_value = 'Mm387898989sst33@yopmail.com'
 
 class EnterAccountInforPage(object):
     mrs_radio = '//*[@id="id_gender2"]' 
@@ -74,5 +75,16 @@ class EnterAccountInforPage(object):
     zipcode_value = '10000'
     mobile_value = '10000'
     country_value = 'Canada'
+
+class AccountCreatedPage(object):
+    continue_btn = '//*[@id="form"]/div/div/div/div/a'
+
+class HomePage(object):
+    delete_btn = '//*[@id="header"]/div/div/div/div[2]/div/ul/li[5]/a'
+
+class AccountDeletedPage(object):
+    continue_btn = '//*[@id="form"]/div/div/div/div/a'
+
+
 
 

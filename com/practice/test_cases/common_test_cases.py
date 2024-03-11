@@ -7,7 +7,7 @@ Dxg test cases
 from seleniumbase import BaseCase
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage
+from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage
 import pyperclip
 import platform
 import logging
@@ -69,6 +69,12 @@ class CommonTestCases(BaseCase):
         self.type(EnterAccountInforPage.zipcode_input, EnterAccountInforPage.zipcode_value)
         self.type(EnterAccountInforPage.mobile_input, EnterAccountInforPage.mobile_value)
         self.click(EnterAccountInforPage.create_submit)
+        self.click(AccountCreatedPage.continue_btn)
+        self.click(HomePage.delete_btn)
+        self.click(AccountDeletedPage.continue_btn)
+
+
+
 
         self.wait(10)
         pass
