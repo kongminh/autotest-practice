@@ -23,7 +23,8 @@ class LoginPage(object):
     email_input = '//input[@data-qa="login-email"]'
     password_input = '//input[@data-qa="login-password"]'
     login_btn = '//button[@data-qa="login-button"]'
-    email_value = '999@yopmail.com'
+    logout_btn = '//a[@href="/logout"]'
+    email_value = '6969@yopmail.com'
     password_value = 'mm1111'
 
 class PopupTestPage(object):
