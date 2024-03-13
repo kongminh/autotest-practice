@@ -30,4 +30,4 @@ class CommonTests(CommonTestCases):
     @pytest.mark.run(order=100)
     def test_case01(self):
         logging.info('test_case01 started')
-        self.LogoutTest()
+        self.RegisterFail()

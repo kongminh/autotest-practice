@@ -118,3 +118,15 @@ class CommonTestCases(BaseCase):
 
         self.wait(10)
         pass
+    def RegisterFail(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(RegisterTestPage.signup_btn)
+        self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
+        self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
+        self.click(RegisterTestPage.submit_btn)
+
+        
+
+        self.wait(10)
+        pass
