@@ -12,13 +12,19 @@ class Common(object):
   
 
 
-class LoginPage(object):
-    username_input = '.login-page__username input'
-    password_input = '.login-page__password input'
-    login_btn = '.login-page__button-wrapper .btn--primary'
+# class LoginPage(object):
+#     username_input = '.login-page__username input'
+#     password_input = '.login-page__password input'
+#     login_btn = '.login-page__button-wrapper .btn--primary'
 
-    username_value = ''
-    password_value = ''
+#     username_value = ''
+#     password_value = ''
+class LoginPage(object):
+    email_input = '//input[@data-qa="login-email"]'
+    password_input = '//input[@data-qa="login-password"]'
+    login_btn = '//button[@data-qa="login-button"]'
+    email_value = '6868@yopmail.com'
+    password_value = 'mm1111'
 
 class PopupTestPage(object):
     dir_path = os.path.dirname(os.path.realpath(__file__))

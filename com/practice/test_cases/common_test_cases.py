@@ -78,3 +78,17 @@ class CommonTestCases(BaseCase):
 
         self.wait(10)
         pass
+    
+    def LoginTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(RegisterTestPage.signup_btn)
+
+        self.type(LoginPage.email_input, LoginPage.email_value)
+        self.type(LoginPage.password_input, LoginPage.password_value)
+        self.click(LoginPage.login_btn)
+        self.click(HomePage.delete_btn)
+        self.click(AccountDeletedPage.continue_btn)
+
+        self.wait(10)
+        pass
