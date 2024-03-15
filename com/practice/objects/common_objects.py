@@ -113,7 +113,8 @@ class ContactUsPage(object):
 
 class ProductsPage(object):
     viewproduct_btn = '//a[@href="/product_details/1"]'
-  
-
+    search_input = '//input[@name="search"]'
+    search_btn = '//button[@id="submit_search"]'
+    search_value = 'winter'
 
 

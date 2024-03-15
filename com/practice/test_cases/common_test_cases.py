@@ -142,3 +142,12 @@ class CommonTestCases(BaseCase):
         self.click(ProductsPage.viewproduct_btn)
         self.wait(10)
         pass
+    
+    def SearchProductTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.product_btn)
+        self.type(ProductsPage.search_input, ProductsPage.search_value)
+        self.click(ProductsPage.search_btn)
+        self.wait(10)
+        pass
