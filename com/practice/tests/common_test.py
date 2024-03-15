@@ -29,5 +29,5 @@ class CommonTests(CommonTestCases):
     #     self.SignupTest()
     @pytest.mark.run(order=100)
     def test_case01(self):
-        logging.info('Testcase 7: Verify Test Cases Page')
-        self.VerifyTestcasePageTest()
+        logging.info('Testcase 8: View products')
+        self.ViewProductTest()

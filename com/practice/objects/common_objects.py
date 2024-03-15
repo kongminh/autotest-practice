@@ -31,6 +31,7 @@ class LoginPage(object):
 class HomePage2(object):
     contact_btn = '//a[@href="/contact_us"]'
     testcase_header_btn = '//header//a[@href="/test_cases"]'
+    product_btn = '//a[@href="/products"]'
 
 
 class PopupTestPage(object):
@@ -110,6 +111,9 @@ class ContactUsPage(object):
     message_value = '1000'
     submit_btn = '//input[@data-qa="submit-button"]'
 
+class ProductsPage(object):
+    viewproduct_btn = '//a[@href="/product_details/1"]'
+  
 
 
 

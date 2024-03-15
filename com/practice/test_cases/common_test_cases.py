@@ -7,7 +7,7 @@ Dxg test cases
 from seleniumbase import BaseCase
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage, HomePage2, ContactUsPage
+from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage, HomePage2, ContactUsPage, ProductsPage
 import pyperclip
 import platform
 import logging
@@ -132,5 +132,13 @@ class CommonTestCases(BaseCase):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(HomePage2.testcase_header_btn)
+        self.wait(10)
+        pass
+    
+    def ViewProductTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.product_btn)
+        self.click(ProductsPage.viewproduct_btn)
         self.wait(10)
         pass
