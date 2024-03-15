@@ -29,5 +29,5 @@ class CommonTests(CommonTestCases):
     #     self.SignupTest()
     @pytest.mark.run(order=100)
     def test_case01(self):
-        logging.info('test_case01 started')
-        self.RegisterFail()
+        logging.info('Testcase 7: Verify Test Cases Page')
+        self.VerifyTestcasePageTest()

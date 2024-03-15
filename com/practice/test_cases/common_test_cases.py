@@ -7,7 +7,7 @@ Dxg test cases
 from seleniumbase import BaseCase
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage
+from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage, HomePage2, ContactUsPage
 import pyperclip
 import platform
 import logging
@@ -49,8 +49,6 @@ class CommonTestCases(BaseCase):
         self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
         self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
         self.click(RegisterTestPage.submit_btn)
-
-
         self.click(EnterAccountInforPage.mrs_radio)
         self.type(EnterAccountInforPage.password_input, EnterAccountInforPage.password_value)
         self.click(EnterAccountInforPage.day_select, EnterAccountInforPage.day_value)
@@ -72,10 +70,6 @@ class CommonTestCases(BaseCase):
         self.click(AccountCreatedPage.continue_btn)
         self.click(HomePage.delete_btn)
         self.click(AccountDeletedPage.continue_btn)
-
-
-
-
         self.wait(10)
         pass
     
@@ -83,41 +77,35 @@ class CommonTestCases(BaseCase):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(RegisterTestPage.signup_btn)
-
         self.type(LoginPage.email_input, LoginPage.email_value)
         self.type(LoginPage.password_input, LoginPage.password_value)
         self.click(LoginPage.login_btn)
         self.click(HomePage.delete_btn)
         self.click(AccountDeletedPage.continue_btn)
-
         self.wait(10)
         pass
+    
     def LoginTest_fail(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(RegisterTestPage.signup_btn)
-
         self.type(LoginPage.email_input, LoginPage.email_value)
         self.type(LoginPage.password_input, LoginPage.password_value)
         self.click(LoginPage.login_btn)
-        
-
         self.wait(10)
         pass
+    
     def LogoutTest(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(RegisterTestPage.signup_btn)
-
         self.type(LoginPage.email_input, LoginPage.email_value)
         self.type(LoginPage.password_input, LoginPage.password_value)
         self.click(LoginPage.login_btn)
         self.click(LoginPage.logout_btn)
-
-        
-
         self.wait(10)
         pass
+    
     def RegisterFail(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
@@ -125,8 +113,24 @@ class CommonTestCases(BaseCase):
         self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
         self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
         self.click(RegisterTestPage.submit_btn)
-
-        
-
+        self.wait(10)
+        pass
+      
+    def ContactUsTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.contact_btn)
+        self.type(ContactUsPage.name_input, ContactUsPage.name_value)
+        self.type(ContactUsPage.email_input, ContactUsPage.email_value)
+        self.type(ContactUsPage.subject_input, ContactUsPage.subject_value)
+        self.type(ContactUsPage.message_input, ContactUsPage.message_value)
+        self.click(ContactUsPage.submit_btn)
+        self.wait(10)
+        pass
+    
+    def VerifyTestcasePageTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.testcase_header_btn)
         self.wait(10)
         pass

@@ -9,6 +9,7 @@ class Common(object):
     base_url = 'https://automationexercise.com/'
     login_url = base_url + 'login'
     signup_url = base_url + 'signup'
+    
   
 
 
@@ -26,6 +27,11 @@ class LoginPage(object):
     logout_btn = '//a[@href="/logout"]'
     email_value = '6969@yopmail.com'
     password_value = 'mm1111'
+
+class HomePage2(object):
+    contact_btn = '//a[@href="/contact_us"]'
+    testcase_header_btn = '//header//a[@href="/test_cases"]'
+
 
 class PopupTestPage(object):
     dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -91,6 +97,18 @@ class HomePage(object):
 
 class AccountDeletedPage(object):
     continue_btn = '//*[@id="form"]/div/div/div/div/a'
+
+class ContactUsPage(object):
+    name_input = '//input[@data-qa="name"]'
+    email_input = '//input[@data-qa="email"]'
+    subject_input = '//input[@data-qa="subject"]'
+    message_input = '//textarea[@data-qa="message"]'
+    upload_btn = '//input[@name="upload_file"]'
+    name_value = '1000'
+    email_value = '1000'
+    subject_value = '1000'
+    message_value = '1000'
+    submit_btn = '//input[@data-qa="submit-button"]'
 
 
 
