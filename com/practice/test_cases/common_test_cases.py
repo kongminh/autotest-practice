@@ -151,3 +151,13 @@ class CommonTestCases(BaseCase):
         self.click(ProductsPage.search_btn)
         self.wait(10)
         pass
+    
+    def SubscribeTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.product_btn)
+        self.scroll_to_bottom()
+        self.type(ProductsPage.subscription_input, ProductsPage.subscription_value)
+        self.click(ProductsPage.subsciption_btn)
+        self.wait(10)
+        pass

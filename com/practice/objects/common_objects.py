@@ -116,5 +116,8 @@ class ProductsPage(object):
     search_input = '//input[@name="search"]'
     search_btn = '//button[@id="submit_search"]'
     search_value = 'winter'
+    subscription_input = '//input[@id="susbscribe_email"]'
+    subsciption_btn = '//button[@id="subscribe"]'
+    subscription_value = '6787@yopmail.com'
 
 
