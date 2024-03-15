@@ -32,8 +32,9 @@ class HomePage2(object):
     contact_btn = '//a[@href="/contact_us"]'
     testcase_header_btn = '//header//a[@href="/test_cases"]'
     product_btn = '//a[@href="/products"]'
-
-
+    subscription_input = '//input[@id="susbscribe_email"]'
+    subsciption_btn = '//button[@id="subscribe"]'
+    subscription_value = '6787@yopmail.com'
 class PopupTestPage(object):
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -116,8 +117,6 @@ class ProductsPage(object):
     search_input = '//input[@name="search"]'
     search_btn = '//button[@id="submit_search"]'
     search_value = 'winter'
-    subscription_input = '//input[@id="susbscribe_email"]'
-    subsciption_btn = '//button[@id="subscribe"]'
-    subscription_value = '6787@yopmail.com'
+   
 
 
