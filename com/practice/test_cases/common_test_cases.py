@@ -7,7 +7,7 @@ Dxg test cases
 from seleniumbase import BaseCase
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage, HomePage2, ContactUsPage, ProductsPage, CartPage
+from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage, HomePage2, ContactUsPage, ProductsPage, CartPage, PopupAdded
 import pyperclip
 import platform
 import logging
@@ -168,5 +168,15 @@ class CommonTestCases(BaseCase):
         self.scroll_to_bottom()
         self.type(CartPage.subscription_input, CartPage.subscription_value)
         self.click(CartPage.subsciption_btn)
+        self.wait(10)
+        pass
+    
+    def AddProductTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.product_btn)
+        self.hover(ProductsPage.product1_hover, timeout=100)
+        self.click(ProductsPage.addproduct_hover_btn)
+        self.click(PopupAdded.countinue_btn)
         self.wait(10)
         pass

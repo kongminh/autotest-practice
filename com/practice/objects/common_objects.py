@@ -118,8 +118,13 @@ class ProductsPage(object):
     search_input = '//input[@name="search"]'
     search_btn = '//button[@id="submit_search"]'
     search_value = 'winter'
+    product1_hover = '(//div[@class="productinfo text-center"])[1]'
+    addproduct_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[1]'
    
 class CartPage(object):
     subscription_input = '//input[@id="susbscribe_email"]'
     subsciption_btn = '//button[@id="subscribe"]'
     subscription_value = '6787@yopmail.com'
+
+class PopupAdded(object):
+    countinue_btn = '//button[@class="btn btn-success close-modal btn-block"]'
