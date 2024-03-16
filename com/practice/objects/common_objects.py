@@ -119,7 +119,9 @@ class ProductsPage(object):
     search_btn = '//button[@id="submit_search"]'
     search_value = 'winter'
     product1_hover = '(//div[@class="productinfo text-center"])[1]'
-    addproduct_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[1]'
+    addproduct1_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[1]'
+    product2_hover = '(//div[@class="productinfo text-center"])[2]'
+    addproduct2_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[2]'
    
 class CartPage(object):
     subscription_input = '//input[@id="susbscribe_email"]'
@@ -128,3 +130,4 @@ class CartPage(object):
 
 class PopupAdded(object):
     countinue_btn = '//button[@class="btn btn-success close-modal btn-block"]'
+    viewcart_btn = '//u'
