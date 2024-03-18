@@ -36,6 +36,8 @@ class HomePage2(object):
     subsciption_btn = '//button[@id="subscribe"]'
     subscription_value = '6787@yopmail.com'
     cart_btn = '//a[@href="/view_cart"]'
+    viewproduct_btn = '//a[@href="/product_details/1"]'
+
 class PopupTestPage(object):
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -108,20 +110,20 @@ class ContactUsPage(object):
     message_input = '//textarea[@data-qa="message"]'
     upload_btn = '//input[@name="upload_file"]'
     name_value = '1000'
-    email_value = '1000'
+    email_value = '1000@yopmail.com'
     subject_value = '1000'
     message_value = '1000'
     submit_btn = '//input[@data-qa="submit-button"]'
+    file_input = '//input[@name="upload_file"]'
 
 class ProductsPage(object):
-    viewproduct_btn = '//a[@href="/product_details/1"]'
     search_input = '//input[@name="search"]'
     search_btn = '//button[@id="submit_search"]'
     search_value = 'winter'
     product1_hover = '(//div[@class="productinfo text-center"])[1]'
     addproduct1_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[1]'
     product2_hover = '(//div[@class="productinfo text-center"])[2]'
-    addproduct2_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[2]'
+    addproduct2_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[3]'
    
 class CartPage(object):
     subscription_input = '//input[@id="susbscribe_email"]'
@@ -131,3 +133,7 @@ class CartPage(object):
 class PopupAdded(object):
     countinue_btn = '//button[@class="btn btn-success close-modal btn-block"]'
     viewcart_btn = '//u'
+class DetailPage(object):
+    quantity_input = '//input[@name="quantity"]'
+    add_btn = '//button[@class="btn btn-default cart"]'
+    quantity_value = '4'

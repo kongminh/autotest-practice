@@ -7,10 +7,11 @@ Dxg test cases
 from seleniumbase import BaseCase
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage, HomePage2, ContactUsPage, ProductsPage, CartPage, PopupAdded
+from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage, HomePage2, ContactUsPage, ProductsPage, CartPage, PopupAdded,DetailPage
 import pyperclip
 import platform
 import logging
+import os
 
 
 class CommonTestCases(BaseCase):
@@ -124,7 +125,12 @@ class CommonTestCases(BaseCase):
         self.type(ContactUsPage.email_input, ContactUsPage.email_value)
         self.type(ContactUsPage.subject_input, ContactUsPage.subject_value)
         self.type(ContactUsPage.message_input, ContactUsPage.message_value)
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        file_path = dir_path + '/../../../mock_pages/index.html'
+        self.choose_file(ContactUsPage.file_input, file_path)
         self.click(ContactUsPage.submit_btn)
+        self.switch_to_alert()
+        self.accept_alert()
         self.wait(10)
         pass
     
@@ -176,13 +182,22 @@ class CommonTestCases(BaseCase):
         self.open(Common.base_url)
         self.click(HomePage2.product_btn)
         self.hover(ProductsPage.product1_hover)
-        self.wait(5)
+        self.wait(1)
         self.click(ProductsPage.addproduct1_hover_btn)
         self.click(PopupAdded.countinue_btn)
-        self.wait(5)
         self.hover(ProductsPage.product2_hover)
-        self.wait(5)
+        self.wait(1)
         self.click(ProductsPage.addproduct2_hover_btn)
+        self.click(PopupAdded.viewcart_btn)
+        self.wait(10)
+        pass
+    
+    def VerifyProductQuantityInCartTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.viewproduct_btn)
+        self.type(DetailPage.quantity_input, DetailPage.quantity_value)
+        self.click(DetailPage.add_btn)
         self.click(PopupAdded.viewcart_btn)
         self.wait(10)
         pass
