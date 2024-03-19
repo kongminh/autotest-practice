@@ -51,12 +51,12 @@ class PopupTestPage(object):
     text_input = '#fname'
 
 class RegisterTestPage(object):
-    signup_btn = '//a[contains(@href, "/login")]'
+    login_btn = '//a[contains(@href, "/login")]'
     name_input = '//input[contains(@name, "name")]'
     email_input = '//input[contains(@name, "email") and contains(@data-qa, "signup-email")]'
     submit_btn = '//*[@id="form"]/div/div/div[3]/div/form/button'
     name_value = 'channg8788'
-    email_value = '6969@yopmail.com'
+    email_value = '696999@yopmail.com'
 
 class EnterAccountInforPage(object):
     mrs_radio = '//*[@id="id_gender2"]' 
@@ -129,11 +129,36 @@ class CartPage(object):
     subscription_input = '//input[@id="susbscribe_email"]'
     subsciption_btn = '//button[@id="subscribe"]'
     subscription_value = '6787@yopmail.com'
+    proceed_btn = '//a[@class="btn btn-default check_out"]'
 
 class PopupAdded(object):
     countinue_btn = '//button[@class="btn btn-success close-modal btn-block"]'
     viewcart_btn = '//u'
+
+class PopupCheckout(object):
+    register_textlink = '//u'
 class DetailPage(object):
     quantity_input = '//input[@name="quantity"]'
     add_btn = '//button[@class="btn btn-default cart"]'
     quantity_value = '4'
+
+class AddressDetailsPage(object):
+    comment_input = '//textarea'
+    comment_value = 'jj'
+    payment_btn = '//a[@href="/payment"]'
+
+class PaymentPage(object):
+    namecard_input = '//input[@name="name_on_card"]'
+    numbercard_input = '//input[@name="card_number"]'
+    cvc_input = '//input[@name="cvc"]'
+    expirymonth_input = '//input[@name="expiry_month"]'
+    expiryyear_input = '//input[@name="expiry_year"]'
+    pay_btn = '//button[@type="submit"]'
+    namecard_value = '0'
+    numbercard_value = '0'
+    cvc_value = '0'
+    expirymonth_value = '0'
+    expiryyear_value = '0'
+    
+    
+    
