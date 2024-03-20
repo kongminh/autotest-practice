@@ -325,5 +325,15 @@ class CommonTestCases(BaseCase):
         self.wait(10)
         pass
     
+    def ViewCategoryProducts(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(ProductsPage.women_btn)
+        self.click(ProductsPage.subwomen_top_btn)
+        self.click(ProductsPage.men_btn)
+        self.click(ProductsPage.submen_btn)
+        self.wait(10)
+        pass
+    
      
  

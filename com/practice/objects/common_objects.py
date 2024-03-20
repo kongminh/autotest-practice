@@ -125,6 +125,10 @@ class ProductsPage(object):
     addproduct1_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[1]'
     product2_hover = '(//div[@class="productinfo text-center"])[2]'
     addproduct2_hover_btn = '(//a[@class="btn btn-default add-to-cart"])[3]'
+    women_btn = '//a[@href="#Women"]'
+    subwomen_top_btn = '//a[@href="/category_products/2"]'
+    men_btn = '//a[@href="#Men"]'
+    submen_btn = '//a[@href="/category_products/3"]'
    
 class CartPage(object):
     subscription_input = '//input[@id="susbscribe_email"]'
