@@ -289,7 +289,7 @@ class CommonTestCases(BaseCase):
         self.wait(10)
         pass
     
-    def PlaceOrderLoginBeforeCheckout(self):
+    def PlaceOrderLoginBeforeCheckoutTest1(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(HomePage2.signup_login_btn)
@@ -301,6 +301,9 @@ class CommonTestCases(BaseCase):
         self.click(CartPage.proceed_btn)
         self.type(AddressDetailsPage.comment_input, AddressDetailsPage.comment_value)
         self.click(AddressDetailsPage.payment_btn)
+        pass
+
+    def PlaceOrderLoginBeforeCheckoutTest2(self):
         self.type(PaymentPage.namecard_input, PaymentPage.namecard_value)
         self.type(PaymentPage.numbercard_input, PaymentPage.numbercard_value)
         self.type(PaymentPage.cvc_input, PaymentPage.cvc_value)
@@ -311,3 +314,5 @@ class CommonTestCases(BaseCase):
         self.click(AccountDeletedPage.continue_btn)
         self.wait(10)
         pass
+     
+ 
