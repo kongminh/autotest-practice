@@ -288,3 +288,26 @@ class CommonTestCases(BaseCase):
         self.click(AccountDeletedPage.continue_btn)
         self.wait(10)
         pass
+    
+    def PlaceOrderLoginBeforeCheckout(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.signup_login_btn)
+        self.type(LoginPage.email_input, LoginPage.email_value)
+        self.type(LoginPage.password_input, LoginPage.password_value)
+        self.click(LoginPage.login_btn)
+        self.click(ProductsPage.addproduct1_hover_btn)
+        self.click(HomePage2.cart_btn)
+        self.click(CartPage.proceed_btn)
+        self.type(AddressDetailsPage.comment_input, AddressDetailsPage.comment_value)
+        self.click(AddressDetailsPage.payment_btn)
+        self.type(PaymentPage.namecard_input, PaymentPage.namecard_value)
+        self.type(PaymentPage.numbercard_input, PaymentPage.numbercard_value)
+        self.type(PaymentPage.cvc_input, PaymentPage.cvc_value)
+        self.type(PaymentPage.expirymonth_input, PaymentPage.expirymonth_value)
+        self.type(PaymentPage.expiryyear_input, PaymentPage.expiryyear_value)
+        self.click(PaymentPage.pay_btn)
+        self.click(HomePage.delete_btn)
+        self.click(AccountDeletedPage.continue_btn)
+        self.wait(10)
+        pass

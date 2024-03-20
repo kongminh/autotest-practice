@@ -25,7 +25,7 @@ class LoginPage(object):
     password_input = '//input[@data-qa="login-password"]'
     login_btn = '//button[@data-qa="login-button"]'
     logout_btn = '//a[@href="/logout"]'
-    email_value = '6969@yopmail.com'
+    email_value = '696968@yopmail.com'
     password_value = 'mm1111'
 
 class HomePage2(object):
