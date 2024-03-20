@@ -25,7 +25,7 @@ class LoginPage(object):
     password_input = '//input[@data-qa="login-password"]'
     login_btn = '//button[@data-qa="login-button"]'
     logout_btn = '//a[@href="/logout"]'
-    email_value = '696968@yopmail.com'
+    email_value = '696969@yopmail.com'
     password_value = 'mm1111'
 
 class HomePage2(object):
@@ -131,6 +131,7 @@ class CartPage(object):
     subsciption_btn = '//button[@id="subscribe"]'
     subscription_value = '6787@yopmail.com'
     proceed_btn = '//a[@class="btn btn-default check_out"]'
+    delete_btn = '//a[@class="cart_quantity_delete"]'
 
 class PopupAdded(object):
     countinue_btn = '//button[@class="btn btn-success close-modal btn-block"]'

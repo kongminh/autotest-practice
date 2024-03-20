@@ -314,5 +314,16 @@ class CommonTestCases(BaseCase):
         self.click(AccountDeletedPage.continue_btn)
         self.wait(10)
         pass
+    
+    def RemoveProductsFromCartTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(ProductsPage.addproduct1_hover_btn)
+        self.click(PopupAdded.countinue_btn)
+        self.click(HomePage2.cart_btn)
+        self.click(CartPage.delete_btn)
+        self.wait(10)
+        pass
+    
      
  
