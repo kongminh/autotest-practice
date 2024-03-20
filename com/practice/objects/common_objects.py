@@ -37,6 +37,7 @@ class HomePage2(object):
     subscription_value = '6787@yopmail.com'
     cart_btn = '//a[@href="/view_cart"]'
     viewproduct_btn = '//a[@href="/product_details/1"]'
+    signup_login_btn = '//a[@href="/login"]'
 
 class PopupTestPage(object):
     dir_path = os.path.dirname(os.path.realpath(__file__))
