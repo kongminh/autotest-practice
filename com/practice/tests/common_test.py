@@ -30,5 +30,5 @@ class CommonTests(CommonTestCases):
     @pytest.mark.run(order=100)
     def test_case01(self):
         logging.info('Testcase 11: Subscribe in Cart page')
-        self.ViewCartBrandProducts()
+        self.SearchProductsVerifyCartAfterLoginTest()
         

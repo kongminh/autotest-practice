@@ -25,7 +25,7 @@ class LoginPage(object):
     password_input = '//input[@data-qa="login-password"]'
     login_btn = '//button[@data-qa="login-button"]'
     logout_btn = '//a[@href="/logout"]'
-    email_value = '696969@yopmail.com'
+    email_value = '6969@yopmail.com'
     password_value = 'mm1111'
 
 class HomePage2(object):
@@ -131,7 +131,7 @@ class ProductsPage(object):
     submen_btn = '//a[@href="/category_products/3"]'
     itembrand1_btn = '//a[@href="/brand_products/Polo"]'
     itembrand2_btn = '//a[@href="/brand_products/H&M"]'
-
+    addproduct3_hover_btn = '//a[@data-product-id="30"]'
    
 class CartPage(object):
     subscription_input = '//input[@id="susbscribe_email"]'

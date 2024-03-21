@@ -343,4 +343,18 @@ class CommonTestCases(BaseCase):
         self.click(ProductsPage.itembrand2_btn)
         self.wait(10)
         pass 
+    
+    def SearchProductsVerifyCartAfterLoginTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.product_btn)
+        self.click(ProductsPage.search_input, ProductsPage.search_value)
+        self.click(ProductsPage.addproduct3_hover_btn)
+        self.click(HomePage2.signup_login_btn)
+        self.type(LoginPage.email_input, LoginPage.email_value)
+        self.type(LoginPage.password_input, LoginPage.password_value)
+        self.click(LoginPage.login_btn)
+        self.click(HomePage2.cart_btn)
+        self.wait(10)
+        pass 
  
