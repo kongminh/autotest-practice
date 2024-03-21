@@ -129,6 +129,9 @@ class ProductsPage(object):
     subwomen_top_btn = '//a[@href="/category_products/2"]'
     men_btn = '//a[@href="#Men"]'
     submen_btn = '//a[@href="/category_products/3"]'
+    itembrand1_btn = '//a[@href="/brand_products/Polo"]'
+    itembrand2_btn = '//a[@href="/brand_products/H&M"]'
+
    
 class CartPage(object):
     subscription_input = '//input[@id="susbscribe_email"]'
