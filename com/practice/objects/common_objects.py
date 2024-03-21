@@ -150,6 +150,14 @@ class DetailPage(object):
     quantity_input = '//input[@name="quantity"]'
     add_btn = '//button[@class="btn btn-default cart"]'
     quantity_value = '4'
+    name_input = '//input[@type="text"]'
+    name_value = 'trang'
+    email_input = '//input[@id="email"]'
+    review_input = '//textarea[@name="review"]'
+    submit_btn = '//button[@id="button-review"]'
+    email_value = '6969@yopmail.com'
+    review_value = 'mmm'
+
 
 class AddressDetailsPage(object):
     comment_input = '//textarea'
@@ -169,5 +177,6 @@ class PaymentPage(object):
     expirymonth_value = '0'
     expiryyear_value = '0'
     
+
     
     

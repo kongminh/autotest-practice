@@ -358,3 +358,14 @@ class CommonTestCases(BaseCase):
         self.wait(10)
         pass 
  
+    def AddReviewOnProductTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.product_btn)
+        self.click(HomePage2.viewproduct_btn)
+        self.type(DetailPage.name_input, DetailPage.name_value)
+        self.type(DetailPage.email_input, DetailPage.email_value)
+        self.type(DetailPage.review_input, DetailPage.review_value)
+        self.click(DetailPage.submit_btn)
+        self.wait(10)
+        pass 
