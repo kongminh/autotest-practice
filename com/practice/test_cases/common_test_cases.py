@@ -378,3 +378,43 @@ class CommonTestCases(BaseCase):
         self.click(PopupAdded.viewcart_btn)
         self.wait(10)
         pass 
+    
+    def RegisterTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.signup_login_btn)
+        self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
+        self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
+        self.click(RegisterTestPage.submit_btn)
+        self.click(EnterAccountInforPage.mrs_radio)
+        self.type(EnterAccountInforPage.password_input, EnterAccountInforPage.password_value)
+        self.click(EnterAccountInforPage.day_select, EnterAccountInforPage.day_value)
+        self.click(EnterAccountInforPage.month_select, EnterAccountInforPage.month_value)
+        self.click(EnterAccountInforPage.year_select, EnterAccountInforPage.year_value)
+        self.click(EnterAccountInforPage.signup_checkbox)
+        self.click(EnterAccountInforPage.receive_checkbox)
+        self.type(EnterAccountInforPage.firstname_input, EnterAccountInforPage.firstname_value)
+        self.type(EnterAccountInforPage.lastname_input, EnterAccountInforPage.lastname_value)
+        self.type(EnterAccountInforPage.company_input, EnterAccountInforPage.company_value)
+        self.type(EnterAccountInforPage.address1_input, EnterAccountInforPage.address1_value)
+        self.type(EnterAccountInforPage.address2_input, EnterAccountInforPage.address2_value)
+        self.click(EnterAccountInforPage.country_select, EnterAccountInforPage.country_value)
+        self.type(EnterAccountInforPage.state_input, EnterAccountInforPage.state_value)
+        self.type(EnterAccountInforPage.city_input, EnterAccountInforPage.city_value)
+        self.type(EnterAccountInforPage.zipcode_input, EnterAccountInforPage.zipcode_value)
+        self.type(EnterAccountInforPage.mobile_input, EnterAccountInforPage.mobile_value)
+        self.click(EnterAccountInforPage.create_submit)
+        self.click(AccountCreatedPage.continue_btn)
+        pass
+    
+    def AddProductTest(self):
+        self.click(ProductsPage.addproduct1_hover_btn)
+        self.click(PopupAdded.viewcart_btn)
+        pass
+    
+    def ProceedToCheckoutAndDeleteTest(self):
+        self.click(CartPage.proceed_btn)
+        self.click(HomePage.delete_btn)
+        self.click(AccountDeletedPage.continue_btn)
+        self.wait(10)
+        pass

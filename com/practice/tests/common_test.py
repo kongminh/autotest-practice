@@ -29,6 +29,7 @@ class CommonTests(CommonTestCases):
     #     self.SignupTest()
     @pytest.mark.run(order=100)
     def test_case01(self):
-        logging.info('Testcase 11: Subscribe in Cart page')
-        self.AddRecommendedItems()
-        
+        logging.info('Test Case 23: Verify address details in checkout page')
+        self.RegisterTest()
+        self.AddProductTest()
+        self.ProceedToCheckoutAndDeleteTest()
