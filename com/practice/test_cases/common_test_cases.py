@@ -369,3 +369,12 @@ class CommonTestCases(BaseCase):
         self.click(DetailPage.submit_btn)
         self.wait(10)
         pass 
+    
+    def AddRecommendedItems(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.slow_scroll_to(HomePage2.recommended_items_div)
+        self.click(HomePage2.addcart_recomment_btn)
+        self.click(PopupAdded.viewcart_btn)
+        self.wait(10)
+        pass 

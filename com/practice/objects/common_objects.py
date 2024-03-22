@@ -38,6 +38,8 @@ class HomePage2(object):
     cart_btn = '//a[@href="/view_cart"]'
     viewproduct_btn = '//a[@href="/product_details/1"]'
     signup_login_btn = '//a[@href="/login"]'
+    recommended_items_div = '//div[@class="recommended_items"]'
+    addcart_recomment_btn = '(//div[@class="recommended_items"]//div[@class="item active"]//a)[1]'
 
 class PopupTestPage(object):
     dir_path = os.path.dirname(os.path.realpath(__file__))
