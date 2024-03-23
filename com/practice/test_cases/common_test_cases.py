@@ -456,3 +456,9 @@ class CommonTestCases(BaseCase):
         self.wait(10)
         pass
     
+    def ScrollUpTopTest(self):
+        self.slow_scroll_to(HomePage2.subscription_input)
+        self.wait(4)
+        self.scroll_to_top()
+        self.wait(10)
+        pass
