@@ -380,8 +380,6 @@ class CommonTestCases(BaseCase):
         pass 
     
     def RegisterTest(self):
-        self.switch_to_default_window()
-        self.open(Common.base_url)
         self.click(HomePage2.signup_login_btn)
         self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
         self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
@@ -416,5 +414,45 @@ class CommonTestCases(BaseCase):
         self.click(CartPage.proceed_btn)
         self.click(HomePage.delete_btn)
         self.click(AccountDeletedPage.continue_btn)
+        pass
+    
+    def CommonTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        pass
+    
+    def ProceedAndRegisterTest(self):
+        self.click(CartPage.proceed_btn)
+        self.click(PopupCheckout.register_textlink)
+        pass
+    
+    def PlaceOrderAndPayTest(self):
+        self.click(HomePage2.cart_btn)
+        self.click(CartPage.proceed_btn)
+        self.type(AddressDetailsPage.comment_input, AddressDetailsPage.comment_value)
+        self.click(AddressDetailsPage.payment_btn)
+        self.type(PaymentPage.namecard_input, PaymentPage.namecard_value)
+        self.type(PaymentPage.numbercard_input, PaymentPage.numbercard_value)
+        self.type(PaymentPage.cvc_input, PaymentPage.cvc_value)
+        self.type(PaymentPage.expirymonth_input, PaymentPage.expirymonth_value)
+        self.type(PaymentPage.expiryyear_input, PaymentPage.expiryyear_value)
+        self.click(PaymentPage.pay_btn)
+        pass
+    
+    def DownloadInvoiceTest(self):
+        self.click(PaymentPage.download_btn)
+        self.click(PaymentPage.continue_btn)
+        pass
+    
+    def DeleteAccountTest(self):
+        self.click(HomePage.delete_btn)
+        self.click(AccountDeletedPage.continue_btn)
+        pass
+
+    def ScrollUpTest(self):
+        self.slow_scroll_to(HomePage2.subscription_input)
+        self.wait(4)
+        self.click(HomePage2.scrollup_btn)
         self.wait(10)
         pass
+    

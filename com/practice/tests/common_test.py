@@ -27,9 +27,20 @@ class CommonTests(CommonTestCases):
     # def test_case01(self):
     #     logging.info('test_case01 started')
     #     self.SignupTest()
-    @pytest.mark.run(order=100)
-    def test_case01(self):
-        logging.info('Test Case 23: Verify address details in checkout page')
-        self.RegisterTest()
-        self.AddProductTest()
-        self.ProceedToCheckoutAndDeleteTest()
+    # @pytest.mark.run(order=100)
+    # def test_case01(self):
+    #     logging.info('Test Case 24: Verify address details in checkout page')
+    #     self.CommonTest()
+    #     self.AddProductTest()
+    #     self.ProceedAndRegisterTest()
+    #     self.RegisterTest()
+    #     self.PlaceOrderAndPayTest()
+    #     self.DownloadInvoiceTest()
+    #     # self.DeleteAccountTest()
+  
+      @pytest.mark.run(order=100)
+      def test_case01(self):
+          logging.info('Test Case 23: Verify address details in checkout page')
+          self.CommonTest()
+          self.ScrollUpTest()
+        

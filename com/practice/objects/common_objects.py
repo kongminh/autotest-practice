@@ -40,6 +40,7 @@ class HomePage2(object):
     signup_login_btn = '//a[@href="/login"]'
     recommended_items_div = '//div[@class="recommended_items"]'
     addcart_recomment_btn = '(//div[@class="recommended_items"]//div[@class="item active"]//a)[1]'
+    scrollup_btn = '//a[@id="scrollUp"]'
 
 class PopupTestPage(object):
     dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -59,7 +60,7 @@ class RegisterTestPage(object):
     email_input = '//input[contains(@name, "email") and contains(@data-qa, "signup-email")]'
     submit_btn = '//*[@id="form"]/div/div/div[3]/div/form/button'
     name_value = 'channg8788'
-    email_value = '696911@yopmail.com'
+    email_value = '696990@yopmail.com'
 
 class EnterAccountInforPage(object):
     mrs_radio = '//*[@id="id_gender2"]' 
@@ -178,6 +179,8 @@ class PaymentPage(object):
     cvc_value = '0'
     expirymonth_value = '0'
     expiryyear_value = '0'
+    download_btn = '//a[@href="/download_invoice/1300"]'
+    continue_btn = '//div[@class="pull-right"]/a'
     
 
     
