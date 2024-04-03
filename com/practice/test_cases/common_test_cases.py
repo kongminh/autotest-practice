@@ -8,6 +8,7 @@ from seleniumbase import BaseCase
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from com.practice.objects.common_objects import Common, LoginPage, PopupTestPage, RegisterTestPage, EnterAccountInforPage, AccountCreatedPage, HomePage, AccountDeletedPage, HomePage2, ContactUsPage, ProductsPage, CartPage, PopupAdded,DetailPage, PopupCheckout, AddressDetailsPage, PaymentPage
+from selenium import webdriver
 import pyperclip
 import platform
 import logging
@@ -15,6 +16,12 @@ import os
 
 
 class CommonTestCases(BaseCase):
+    def get_new_driver(self, *args, **kwargs):
+      options = webdriver.ChromeOptions()
+      options.set_capability('unhandledPromptBehavior', 'ignore')
+      if self.headless:
+            options.add_argument("--headless")
+      return webdriver.Chrome(options=options)
 
     def Login(self):
         self.switch_to_default_window()
@@ -43,18 +50,24 @@ class CommonTestCases(BaseCase):
         self.wait(10)
         pass
     
-    def SignupTest(self):
+    def SignUp_LoginTest(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(HomePage2.signup_login_btn)
+        pass
+
+    def SignUp_InputNameAndEmailTest(self):
         self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
         self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
         self.click(RegisterTestPage.submit_btn)
+        pass
+
+    def SignUp_InputPersonalInforTest(self):
         self.click(EnterAccountInforPage.mrs_radio)
         self.type(EnterAccountInforPage.password_input, EnterAccountInforPage.password_value)
-        self.click(EnterAccountInforPage.day_select, EnterAccountInforPage.day_value)
-        self.click(EnterAccountInforPage.month_select, EnterAccountInforPage.month_value)
-        self.click(EnterAccountInforPage.year_select, EnterAccountInforPage.year_value)
+        self.type(EnterAccountInforPage.day_select, EnterAccountInforPage.day_value)
+        self.type(EnterAccountInforPage.month_select, EnterAccountInforPage.month_value)
+        self.type(EnterAccountInforPage.year_select, EnterAccountInforPage.year_value)
         self.click(EnterAccountInforPage.signup_checkbox)
         self.click(EnterAccountInforPage.receive_checkbox)
         self.type(EnterAccountInforPage.firstname_input, EnterAccountInforPage.firstname_value)
@@ -62,60 +75,50 @@ class CommonTestCases(BaseCase):
         self.type(EnterAccountInforPage.company_input, EnterAccountInforPage.company_value)
         self.type(EnterAccountInforPage.address1_input, EnterAccountInforPage.address1_value)
         self.type(EnterAccountInforPage.address2_input, EnterAccountInforPage.address2_value)
-        self.click(EnterAccountInforPage.country_select, EnterAccountInforPage.country_value)
+        self.type(EnterAccountInforPage.country_select, EnterAccountInforPage.country_value)
         self.type(EnterAccountInforPage.state_input, EnterAccountInforPage.state_value)
         self.type(EnterAccountInforPage.city_input, EnterAccountInforPage.city_value)
         self.type(EnterAccountInforPage.zipcode_input, EnterAccountInforPage.zipcode_value)
         self.type(EnterAccountInforPage.mobile_input, EnterAccountInforPage.mobile_value)
         self.click(EnterAccountInforPage.create_submit)
         self.click(AccountCreatedPage.continue_btn)
+        pass
+
+    def DeleteAccTest(self):     
         self.click(HomePage.delete_btn)
         self.click(AccountDeletedPage.continue_btn)
-        self.wait(10)
         pass
+       
     
-    def LoginTest(self):
-        self.switch_to_default_window()
-        self.open(Common.base_url)
-        self.click(HomePage2.signup_login_btn)
+    def Login_InputEmailPasswordTest(self):
         self.type(LoginPage.email_input, LoginPage.email_value)
         self.type(LoginPage.password_input, LoginPage.password_value)
         self.click(LoginPage.login_btn)
-        self.click(HomePage.delete_btn)
-        self.click(AccountDeletedPage.continue_btn)
-        self.wait(10)
         pass
     
-    def LoginTest_fail(self):
-        self.switch_to_default_window()
-        self.open(Common.base_url)
-        self.click(HomePage2.signup_login_btn)
-        self.type(LoginPage.email_input, LoginPage.email_value)
-        self.type(LoginPage.password_input, LoginPage.password_value)
-        self.click(LoginPage.login_btn)
-        self.wait(10)
-        pass
+    # def LoginTest_fail(self):
+    #     self.switch_to_default_window()
+    #     self.open(Common.base_url)
+    #     self.click(HomePage2.signup_login_btn)
+    #     self.type(LoginPage.email_input, LoginPage.email_value)
+    #     self.type(LoginPage.password_input, LoginPage.password_value)
+    #     self.click(LoginPage.login_btn)
+    #     self.wait(10)
+    #     pass
     
     def LogoutTest(self):
-        self.switch_to_default_window()
-        self.open(Common.base_url)
-        self.click(HomePage2.signup_login_btn)
-        self.type(LoginPage.email_input, LoginPage.email_value)
-        self.type(LoginPage.password_input, LoginPage.password_value)
-        self.click(LoginPage.login_btn)
         self.click(LoginPage.logout_btn)
-        self.wait(10)
         pass
     
-    def RegisterFail(self):
-        self.switch_to_default_window()
-        self.open(Common.base_url)
-        self.click(HomePage2.signup_login_btn)
-        self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
-        self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
-        self.click(RegisterTestPage.submit_btn)
-        self.wait(10)
-        pass
+    # def RegisterFail(self):
+    #     self.switch_to_default_window()
+    #     self.open(Common.base_url)
+    #     self.click(HomePage2.signup_login_btn)
+    #     self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
+    #     self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
+    #     self.click(RegisterTestPage.submit_btn)
+    #     self.wait(10)
+    #     pass
       
     def ContactUsTest(self):
         self.switch_to_default_window()
@@ -129,24 +132,20 @@ class CommonTestCases(BaseCase):
         file_path = dir_path + '/../../../mock_pages/index.html'
         self.choose_file(ContactUsPage.file_input, file_path)
         self.click(ContactUsPage.submit_btn)
-        self.switch_to_alert()
-        self.accept_alert()
-        self.wait(10)
         pass
     
     def VerifyTestcasePageTest(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(HomePage2.testcase_header_btn)
-        self.wait(10)
         pass
     
     def ViewProductTest(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(HomePage2.product_btn)
-        self.click(ProductsPage.viewproduct_btn)
-        self.wait(10)
+        self.click(HomePage2.viewproduct_btn)
+        self.wait(3)
         pass
     
     def SearchProductTest(self):
@@ -155,7 +154,7 @@ class CommonTestCases(BaseCase):
         self.click(HomePage2.product_btn)
         self.type(ProductsPage.search_input, ProductsPage.search_value)
         self.click(ProductsPage.search_btn)
-        self.wait(10)
+        self.wait(3)
         pass
     
     def SubscribeTest(self):
@@ -164,7 +163,7 @@ class CommonTestCases(BaseCase):
         self.scroll_to_bottom()
         self.type(HomePage2.subscription_input, HomePage2.subscription_value)
         self.click(HomePage2.subsciption_btn)
-        self.wait(10)
+        self.wait(2)
         pass
     
     def SubscribeCartTest(self):
@@ -174,10 +173,10 @@ class CommonTestCases(BaseCase):
         self.scroll_to_bottom()
         self.type(CartPage.subscription_input, CartPage.subscription_value)
         self.click(CartPage.subsciption_btn)
-        self.wait(10)
+        self.wait(2)
         pass
     
-    def AddProductTest(self):
+    def AddProductInCartTest(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(HomePage2.product_btn)
@@ -189,7 +188,7 @@ class CommonTestCases(BaseCase):
         self.wait(1)
         self.click(ProductsPage.addproduct2_hover_btn)
         self.click(PopupAdded.viewcart_btn)
-        self.wait(10)
+        self.wait(2)
         pass
     
     def VerifyProductQuantityInCartTest(self):
@@ -199,81 +198,14 @@ class CommonTestCases(BaseCase):
         self.type(DetailPage.quantity_input, DetailPage.quantity_value)
         self.click(DetailPage.add_btn)
         self.click(PopupAdded.viewcart_btn)
-        self.wait(10)
         pass
     
-    def PlaceOrderRegisterWhileCheckoutTest(self):
-        self.switch_to_default_window()
-        self.open(Common.base_url)
-        self.click(ProductsPage.addproduct1_hover_btn)
-        self.click(PopupAdded.countinue_btn)
-        self.click(HomePage2.cart_btn)
+    def ProceedCheckoutTest(self):
         self.click(CartPage.proceed_btn)
         self.click(PopupCheckout.register_textlink)
-        self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
-        self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
-        self.click(RegisterTestPage.submit_btn)
-        self.click(EnterAccountInforPage.mrs_radio)
-        self.type(EnterAccountInforPage.password_input, EnterAccountInforPage.password_value)
-        self.click(EnterAccountInforPage.day_select, EnterAccountInforPage.day_value)
-        self.click(EnterAccountInforPage.month_select, EnterAccountInforPage.month_value)
-        self.click(EnterAccountInforPage.year_select, EnterAccountInforPage.year_value)
-        self.click(EnterAccountInforPage.signup_checkbox)
-        self.click(EnterAccountInforPage.receive_checkbox)
-        self.type(EnterAccountInforPage.firstname_input, EnterAccountInforPage.firstname_value)
-        self.type(EnterAccountInforPage.lastname_input, EnterAccountInforPage.lastname_value)
-        self.type(EnterAccountInforPage.company_input, EnterAccountInforPage.company_value)
-        self.type(EnterAccountInforPage.address1_input, EnterAccountInforPage.address1_value)
-        self.type(EnterAccountInforPage.address2_input, EnterAccountInforPage.address2_value)
-        self.click(EnterAccountInforPage.country_select, EnterAccountInforPage.country_value)
-        self.type(EnterAccountInforPage.state_input, EnterAccountInforPage.state_value)
-        self.type(EnterAccountInforPage.city_input, EnterAccountInforPage.city_value)
-        self.type(EnterAccountInforPage.zipcode_input, EnterAccountInforPage.zipcode_value)
-        self.type(EnterAccountInforPage.mobile_input, EnterAccountInforPage.mobile_value)
-        self.click(EnterAccountInforPage.create_submit)
-        self.click(AccountCreatedPage.continue_btn)
-        self.click(HomePage2.cart_btn)
-        self.click(CartPage.proceed_btn)
-        self.type(AddressDetailsPage.comment_input, AddressDetailsPage.comment_value)
-        self.click(AddressDetailsPage.payment_btn)
-        self.type(PaymentPage.namecard_input, PaymentPage.namecard_value)
-        self.type(PaymentPage.numbercard_input, PaymentPage.numbercard_value)
-        self.type(PaymentPage.cvc_input, PaymentPage.cvc_value)
-        self.type(PaymentPage.expirymonth_input, PaymentPage.expirymonth_value)
-        self.type(PaymentPage.expiryyear_input, PaymentPage.expiryyear_value)
-        self.click(PaymentPage.pay_btn)
-        self.click(HomePage.delete_btn)
-        self.click(AccountDeletedPage.continue_btn)
-        self.wait(10)
         pass
     
-    def PlaceOrderRegisterBeforeCheckoutTest(self):
-        self.switch_to_default_window()
-        self.open(Common.base_url)
-        self.click(HomePage2.signup_login_btn)
-        self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
-        self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
-        self.click(RegisterTestPage.submit_btn)
-        self.click(EnterAccountInforPage.mrs_radio)
-        self.type(EnterAccountInforPage.password_input, EnterAccountInforPage.password_value)
-        self.click(EnterAccountInforPage.day_select, EnterAccountInforPage.day_value)
-        self.click(EnterAccountInforPage.month_select, EnterAccountInforPage.month_value)
-        self.click(EnterAccountInforPage.year_select, EnterAccountInforPage.year_value)
-        self.click(EnterAccountInforPage.signup_checkbox)
-        self.click(EnterAccountInforPage.receive_checkbox)
-        self.type(EnterAccountInforPage.firstname_input, EnterAccountInforPage.firstname_value)
-        self.type(EnterAccountInforPage.lastname_input, EnterAccountInforPage.lastname_value)
-        self.type(EnterAccountInforPage.company_input, EnterAccountInforPage.company_value)
-        self.type(EnterAccountInforPage.address1_input, EnterAccountInforPage.address1_value)
-        self.type(EnterAccountInforPage.address2_input, EnterAccountInforPage.address2_value)
-        self.click(EnterAccountInforPage.country_select, EnterAccountInforPage.country_value)
-        self.type(EnterAccountInforPage.state_input, EnterAccountInforPage.state_value)
-        self.type(EnterAccountInforPage.city_input, EnterAccountInforPage.city_value)
-        self.type(EnterAccountInforPage.zipcode_input, EnterAccountInforPage.zipcode_value)
-        self.type(EnterAccountInforPage.mobile_input, EnterAccountInforPage.mobile_value)
-        self.click(EnterAccountInforPage.create_submit)
-        self.click(AccountCreatedPage.continue_btn)
-        self.click(ProductsPage.addproduct1_hover_btn)
+    def PlaceOrderTest(self):    
         self.click(HomePage2.cart_btn)
         self.click(CartPage.proceed_btn)
         self.type(AddressDetailsPage.comment_input, AddressDetailsPage.comment_value)
@@ -284,9 +216,6 @@ class CommonTestCases(BaseCase):
         self.type(PaymentPage.expirymonth_input, PaymentPage.expirymonth_value)
         self.type(PaymentPage.expiryyear_input, PaymentPage.expiryyear_value)
         self.click(PaymentPage.pay_btn)
-        self.click(HomePage.delete_btn)
-        self.click(AccountDeletedPage.continue_btn)
-        self.wait(10)
         pass
     
     def PlaceOrderLoginBeforeCheckoutTest1(self):
@@ -322,7 +251,7 @@ class CommonTestCases(BaseCase):
         self.click(PopupAdded.countinue_btn)
         self.click(HomePage2.cart_btn)
         self.click(CartPage.delete_btn)
-        self.wait(10)
+        self.wait(2)
         pass
     
     def ViewCategoryProductsTest(self):
@@ -332,7 +261,7 @@ class CommonTestCases(BaseCase):
         self.click(ProductsPage.subwomen_top_btn)
         self.click(ProductsPage.men_btn)
         self.click(ProductsPage.submen_btn)
-        self.wait(10)
+        self.wait(2)
         pass
     
     def ViewCartBrandProducts(self):
@@ -341,21 +270,21 @@ class CommonTestCases(BaseCase):
         self.click(HomePage2.product_btn)
         self.click(ProductsPage.itembrand1_btn)
         self.click(ProductsPage.itembrand2_btn)
-        self.wait(10)
+        self.wait(2)
         pass 
     
     def SearchProductsVerifyCartAfterLoginTest(self):
         self.switch_to_default_window()
         self.open(Common.base_url)
         self.click(HomePage2.product_btn)
-        self.click(ProductsPage.search_input, ProductsPage.search_value)
+        self.type(ProductsPage.search_input, ProductsPage.search_value)
         self.click(ProductsPage.addproduct3_hover_btn)
         self.click(HomePage2.signup_login_btn)
         self.type(LoginPage.email_input, LoginPage.email_value)
         self.type(LoginPage.password_input, LoginPage.password_value)
         self.click(LoginPage.login_btn)
         self.click(HomePage2.cart_btn)
-        self.wait(10)
+        self.wait(2)
         pass 
  
     def AddReviewOnProductTest(self):
@@ -367,7 +296,7 @@ class CommonTestCases(BaseCase):
         self.type(DetailPage.email_input, DetailPage.email_value)
         self.type(DetailPage.review_input, DetailPage.review_value)
         self.click(DetailPage.submit_btn)
-        self.wait(10)
+        self.wait(2)
         pass 
     
     def AddRecommendedItems(self):
@@ -379,86 +308,26 @@ class CommonTestCases(BaseCase):
         self.wait(10)
         pass 
     
-    def RegisterTest(self):
-        self.click(HomePage2.signup_login_btn)
-        self.type(RegisterTestPage.name_input, RegisterTestPage.name_value)
-        self.type(RegisterTestPage.email_input, RegisterTestPage.email_value)
-        self.click(RegisterTestPage.submit_btn)
-        self.click(EnterAccountInforPage.mrs_radio)
-        self.type(EnterAccountInforPage.password_input, EnterAccountInforPage.password_value)
-        self.click(EnterAccountInforPage.day_select, EnterAccountInforPage.day_value)
-        self.click(EnterAccountInforPage.month_select, EnterAccountInforPage.month_value)
-        self.click(EnterAccountInforPage.year_select, EnterAccountInforPage.year_value)
-        self.click(EnterAccountInforPage.signup_checkbox)
-        self.click(EnterAccountInforPage.receive_checkbox)
-        self.type(EnterAccountInforPage.firstname_input, EnterAccountInforPage.firstname_value)
-        self.type(EnterAccountInforPage.lastname_input, EnterAccountInforPage.lastname_value)
-        self.type(EnterAccountInforPage.company_input, EnterAccountInforPage.company_value)
-        self.type(EnterAccountInforPage.address1_input, EnterAccountInforPage.address1_value)
-        self.type(EnterAccountInforPage.address2_input, EnterAccountInforPage.address2_value)
-        self.click(EnterAccountInforPage.country_select, EnterAccountInforPage.country_value)
-        self.type(EnterAccountInforPage.state_input, EnterAccountInforPage.state_value)
-        self.type(EnterAccountInforPage.city_input, EnterAccountInforPage.city_value)
-        self.type(EnterAccountInforPage.zipcode_input, EnterAccountInforPage.zipcode_value)
-        self.type(EnterAccountInforPage.mobile_input, EnterAccountInforPage.mobile_value)
-        self.click(EnterAccountInforPage.create_submit)
-        self.click(AccountCreatedPage.continue_btn)
-        pass
-    
-    def AddProductTest(self):
-        self.click(ProductsPage.addproduct1_hover_btn)
-        self.click(PopupAdded.viewcart_btn)
-        pass
-    
-    def ProceedToCheckoutAndDeleteTest(self):
-        self.click(CartPage.proceed_btn)
-        self.click(HomePage.delete_btn)
-        self.click(AccountDeletedPage.continue_btn)
-        pass
-    
-    def CommonTest(self):
-        self.switch_to_default_window()
-        self.open(Common.base_url)
-        pass
-    
-    def ProceedAndRegisterTest(self):
-        self.click(CartPage.proceed_btn)
-        self.click(PopupCheckout.register_textlink)
-        pass
-    
-    def PlaceOrderAndPayTest(self):
-        self.click(HomePage2.cart_btn)
-        self.click(CartPage.proceed_btn)
-        self.type(AddressDetailsPage.comment_input, AddressDetailsPage.comment_value)
-        self.click(AddressDetailsPage.payment_btn)
-        self.type(PaymentPage.namecard_input, PaymentPage.namecard_value)
-        self.type(PaymentPage.numbercard_input, PaymentPage.numbercard_value)
-        self.type(PaymentPage.cvc_input, PaymentPage.cvc_value)
-        self.type(PaymentPage.expirymonth_input, PaymentPage.expirymonth_value)
-        self.type(PaymentPage.expiryyear_input, PaymentPage.expiryyear_value)
-        self.click(PaymentPage.pay_btn)
-        pass
-    
     def DownloadInvoiceTest(self):
         self.click(PaymentPage.download_btn)
+        self.get_downloaded_files()
         self.click(PaymentPage.continue_btn)
-        pass
-    
-    def DeleteAccountTest(self):
-        self.click(HomePage.delete_btn)
-        self.click(AccountDeletedPage.continue_btn)
         pass
 
     def ScrollUpTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
         self.slow_scroll_to(HomePage2.subscription_input)
         self.wait(4)
         self.click(HomePage2.scrollup_btn)
-        self.wait(10)
+        self.wait(2)
         pass
     
     def ScrollUpTopTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
         self.slow_scroll_to(HomePage2.subscription_input)
         self.wait(4)
         self.scroll_to_top()
-        self.wait(10)
+        self.wait(2)
         pass
