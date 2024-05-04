@@ -22,6 +22,13 @@ class CommonTestCases(BaseCase):
       if self.headless:
             options.add_argument("--headless")
       return webdriver.Chrome(options=options)
+    
+
+    def SignUp_LoginTest(self):
+        self.switch_to_default_window()
+        self.open(Common.base_url)
+        self.click(HomePage2.signup_login_btn)
+        pass
 
     def Login(self):
         self.switch_to_default_window()

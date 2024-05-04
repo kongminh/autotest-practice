@@ -10,6 +10,13 @@ class Common(object):
     login_url = base_url + 'login'
     signup_url = base_url + 'signup'
     
+class LoginPage(object):
+    email_input = '[data-qa="login-email"]'
+    password_input = '[type="password"]'
+    login_btn = '[data-qa="login-button"]'
+    logout_btn = '[href="/logout"]'
+    email_value = '6969@yopmail.com'
+    password_value = 'mm1111'    
   
 
 
@@ -20,13 +27,7 @@ class Common(object):
 
 #     username_value = ''
 #     password_value = ''
-class LoginPage(object):
-    email_input = '[data-qa="login-email"]'
-    password_input = '[type="password"]'
-    login_btn = '[data-qa="login-button"]'
-    logout_btn = '[href="/logout"]'
-    email_value = '6969@yopmail.com'
-    password_value = 'mm1111'
+
     # Xpath
     # email_input = '//input[@data-qa="login-email"]'
     # password_input = '//input[@data-qa="login-password"]'
@@ -90,7 +91,7 @@ class RegisterTestPage(object):
     # email_value = '6962@yopmail.com'
 
 class EnterAccountInforPage(object):
-    mrs_radio = '[value="Mrs"]'
+    mrs_radio_input = '[value="Mrs"]'
     name_input = '#name'
     email_input = '#email'
     password_input = '#password'

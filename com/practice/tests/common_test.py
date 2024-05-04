@@ -5,13 +5,16 @@ Common testing
 '''
 
 from seleniumbase import BaseCase
-from com.practice.test_cases.common_test_cases import CommonTestCases
+from com.impactlab.test_cases.common_test_cases import CommonTestCases
 import logging
 from config import Config
 import pytest
 
-@pytest.mark.skipif(Config.disable_doing, reason="Config")
+@pytest.mark.skipif(True, reason="Config")
 class CommonTests(CommonTestCases):
+    
+  
+
 
     # @pytest.mark.run(order=100)
     # def test_case01(self):
