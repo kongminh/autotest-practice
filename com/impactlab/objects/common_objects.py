@@ -11,9 +11,9 @@ class Common(object):
     signup_btn = '[style="--button-color:var(--mantine-color-white);border:1px solid black;background:#FAC91B;color:#000000"]'
    
 class Signup(object):
-    email_input = '#mantine-eveu7qtlo'
-    password_input = '#mantine-h2020wka5'
+    email_input = '#mantine-huj7p3f5m'
+    password_input = '#mantine-9n9f6nyey'
     continue_btn = '[type="submit"]'
-    email_value = 'minhtest14@yopmail.com'
-    password_value = '1'
+    email_value = 'minhtest15@yopmail.com'
+    password_value = 'Mm@11111'
     
